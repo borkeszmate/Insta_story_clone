@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -22,15 +23,27 @@ export class HomeComponent implements OnInit {
   timeOut;
   testTime;
   story_bg;
+  story_line;
 
   arrLength = this.contents.length;
-  constructor() { }
+  constructor(private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit() {
 
     this.story_bg = document.querySelector('.story-bg');
+    this.story_line = document.querySelector('.story__line');
 
     this.iterate2(this.currentIteration);
+    this.createLines();
+  }
+
+  createLines() {
+
+    for (let i = 0 ; i < this.arrLength; i++) {
+      const div = this.renderer.createElement('div');
+      div.classList.add('story__line__item');
+      this.renderer.appendChild(this.story_line, div);
+    }
 
   }
 
