@@ -64,3 +64,20 @@
  }
 
 }
+
+.loaded{
+ transition: all 3s;
+ // animation-name: loader;
+ // animation-duration: 3s;
+ background-color: red;
+
+}
+
+@keyframes loader {
+ 0%{
+  transform: translateX(-100%);
+ }
+ 100%{
+  transform: translateX(0);
+ }
+}

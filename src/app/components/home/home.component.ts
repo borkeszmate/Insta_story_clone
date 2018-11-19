@@ -26,23 +26,28 @@ export class HomeComponent implements OnInit {
   story_line;
 
   arrLength = this.contents.length;
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
   ngOnInit() {
 
     this.story_bg = document.querySelector('.story-bg');
     this.story_line = document.querySelector('.story__line');
 
-    this.iterate2(this.currentIteration);
     this.createLines();
+    this.iterate2(this.currentIteration);
+
   }
 
   createLines() {
 
     for (let i = 0 ; i < this.arrLength; i++) {
       const div = this.renderer.createElement('div');
-      div.classList.add('story__line__item');
+
+      div.classList.add(`story__line__item`);
+
+
       this.renderer.appendChild(this.story_line, div);
+
     }
 
   }
@@ -52,10 +57,16 @@ export class HomeComponent implements OnInit {
     if (counter < this.arrLength && counter > -1) {
       this.currentContent = this.contents[counter].img;
       this.currentIteration = counter;
+      // Add class to loaded lines
+
+     const activatedLine = this.story_line.children[counter];
+    //  console.log(activatedLine);
+      this.renderer.addClass(activatedLine, 'loaded');
 
      this.timeOut = setTimeout(() => {
         this.currentContent = this.contents[counter].img;
         this.iterate2(counter + 1);
+
       }, 3000);
     }
   }
@@ -70,7 +81,10 @@ export class HomeComponent implements OnInit {
   jumpBackward() {
     clearTimeout(this.timeOut);
     const counter = this.currentIteration - 1;
-    console.log(counter);
+    if ( counter > - 1 ) {
+      const removedLine = this.story_line.children[counter + 1];
+      this.renderer.removeClass(removedLine, 'loaded');
+    }
     this.iterate2(counter);
   }
 
