@@ -29,9 +29,9 @@
 
   &__item{
    margin: 1rem .3rem;
-   height: .1rem;
+   height: 1rem;
    // width: 1rem;
-   background-color: white;
+   background-color: #b8b8b8;
    border-radius: 12px;
    flex: 1;
   }
@@ -66,18 +66,24 @@
 }
 
 .loaded{
- transition: all 3s;
- // animation-name: loader;
- // animation-duration: 3s;
- background-color: red;
-
+ 
+ animation-name: loader;
+ animation-duration: 3s;
+ background-color: white;
+ 
+ 
 }
 
 @keyframes loader {
  0%{
-  transform: translateX(-100%);
+  background-image: linear-gradient(90deg, white 0%, white 10%,  #b8b8b8 10%);
+  background-size: 100%;
+ }
+ 99%{
+  background-image: linear-gradient(90deg, white 0%, white 10%,  #b8b8b8 10%);
+  background-size: 1000%;
  }
  100%{
-  transform: translateX(0);
+  background-color: white;
  }
 }

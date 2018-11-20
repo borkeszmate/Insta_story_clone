@@ -8,6 +8,8 @@ import { Renderer2, ElementRef } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+
   contents = [
     {img: '../../../assets/img/1.jpg', navigateLink: '1'},
     { img: '../../../assets/img/2.jpg', navigateLink: '2' },
@@ -17,6 +19,8 @@ export class HomeComponent implements OnInit {
     { img: '../../../assets/img/6.jpg', navigateLink: '6' },
   ];
 
+
+
   currentContent = this.contents[0].img;
   actualCard = 1;
   currentIteration = 0;
@@ -24,9 +28,13 @@ export class HomeComponent implements OnInit {
   testTime;
   story_bg;
   story_line;
-
   arrLength = this.contents.length;
+
+
   constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
+
+
+
 
   ngOnInit() {
 
@@ -37,6 +45,9 @@ export class HomeComponent implements OnInit {
     this.iterate2(this.currentIteration);
 
   }
+
+
+
 
   createLines() {
 
@@ -51,6 +62,9 @@ export class HomeComponent implements OnInit {
     }
 
   }
+
+
+
 
   iterate2(counter) {
 
@@ -71,12 +85,18 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
+
+
   jumpForward() {
     clearTimeout(this.timeOut);
     const counter = this.currentIteration + 1;
     console.log(counter);
     this.iterate2(counter);
   }
+
+
+
 
   jumpBackward() {
     clearTimeout(this.timeOut);
@@ -87,6 +107,9 @@ export class HomeComponent implements OnInit {
     }
     this.iterate2(counter);
   }
+
+
+
 
   clearTime() {
 
