@@ -11,17 +11,18 @@ export class HomeComponent implements OnInit {
 
 
   contents = [
-    {img: '../../../assets/img/1.jpg', navigateLink: '1'},
-    { img: '../../../assets/img/2.jpg', navigateLink: '2' },
-    { img: '../../../assets/img/3.jpg', navigateLink: '3' },
-    { img: '../../../assets/img/4.jpg', navigateLink: '4' },
-    { img: '../../../assets/img/5.jpg', navigateLink: '5' },
-    { img: '../../../assets/img/6.jpg', navigateLink: '6' },
+    {img: '../../../assets/img/1.jpg', navigateLink: '1', headline: 'Headline 1 Lorem Ipsum lorem'},
+    { img: '../../../assets/img/2.jpg', navigateLink: '2', headline: 'Headline 2 Lorem Ipsum lorem'  },
+    { img: '../../../assets/img/3.jpg', navigateLink: '3', headline: 'Headline 3 Lorem Ipsum lorem' },
+    { img: '../../../assets/img/4.jpg', navigateLink: '4', headline: 'Headline 4 Lorem Ipsum lorem' },
+    { img: '../../../assets/img/5.jpg', navigateLink: '5', headline: 'Headline 5 Lorem Ipsum lorem' },
+    { img: '../../../assets/img/6.jpg', navigateLink: '6', headline: 'Headline 6 Lorem Ipsum lorem' },
   ];
 
 
 
   currentContent = this.contents[0].img;
+  currentHeadline = this.contents[0].headline;
   actualCard = 1;
   currentIteration = 0;
   timeOut;
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.story_bg = document.querySelector('.story-bg');
+    // this.story_bg.style.backgroundImage = `url(${this.currentContent})`;
     this.story_line = document.querySelector('.story__line');
 
     this.createLines();
@@ -70,6 +72,8 @@ export class HomeComponent implements OnInit {
 
     if (counter < this.arrLength && counter > -1) {
       this.currentContent = this.contents[counter].img;
+      this.currentHeadline = this.contents[counter].headline;
+      this.story_bg.style.backgroundImage = `url(${this.currentContent})`;
       this.currentIteration = counter;
       // Add class to loaded lines
 
@@ -79,10 +83,19 @@ export class HomeComponent implements OnInit {
 
      this.timeOut = setTimeout(() => {
         this.currentContent = this.contents[counter].img;
+        this.currentHeadline = this.contents[counter].headline;
+        console.log(this.currentHeadline);
+       this.story_bg.style.backgroundImage = `url(${this.currentContent})`;
+
         this.iterate2(counter + 1);
 
       }, 3000);
     }
+    // Start from the beginning
+    // if ( counter === this.arrLength) {
+    //   this.iterate2(0);
+
+    // }
   }
 
 
@@ -100,6 +113,7 @@ export class HomeComponent implements OnInit {
 
     }
     this.iterate2(counter);
+
   }
 
 
@@ -123,7 +137,6 @@ export class HomeComponent implements OnInit {
 
       this.renderer.removeClass(currentLine, 'loaded');
       this.renderer.removeClass(currentLine, 'skipped');
-      // console.log(counter);
       setTimeout(() => {
         this.iterate2(counter);
       }, 10);
@@ -135,7 +148,7 @@ export class HomeComponent implements OnInit {
 
   clearTime() {
 
-    console.log(this.timeOut);
+    // console.log(this.timeOut);
     clearTimeout(this.timeOut);
 
   }

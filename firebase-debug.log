@@ -1,0 +1,25 @@
+[debug] [2018-11-21T22:11:37.825Z] ----------------------------------------------------------------------
+[debug] [2018-11-21T22:11:37.825Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Borkesz Máté\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase init
+[debug] [2018-11-21T22:11:37.825Z] CLI Version:   5.1.1
+[debug] [2018-11-21T22:11:37.825Z] Platform:      win32
+[debug] [2018-11-21T22:11:37.825Z] Node Version:  v8.9.4
+[debug] [2018-11-21T22:11:37.825Z] Time:          Wed Nov 21 2018 23:11:37 GMT+0100 (Közép-európai téli idő )
+[debug] [2018-11-21T22:11:37.825Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-21T22:11:37.841Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-21T22:11:37.841Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\xampp\htdocs\Insta_Story\insta-story
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

@@ -1,19 +1,31 @@
 <div class="container">
   <div class="story-bg"></div>
   <div class="story">
-    <img [src]="currentContent" alt="">
+    <div class="story__image">
+      <img [src]="currentContent" alt="">
+    </div>
       <div class="story__line">
-
       </div>
     <div class="story__overlay">
       <div class="story__overlay__back" (click)="jumpBackward()"></div>
       <div class="story__overlay__forward" (click)="jumpForward()"></div>
     </div>
+
+    <div class="story__copy">
+      <div>
+        <div class="story__copy__headline">
+            <h1>{{currentHeadline}}</h1>
+        </div>
+      </div>
+      <div class="story__copy__btn">
+        <a href="" class="btn">Read more</a>
+      </div>
+    </div>
   </div>  
-  <h1>{{currentContent}}</h1>
+  <!-- <h1>{{currentContent}}</h1>
   <button (click)="jumpBackward()">Hátra</button>
   <button (click)="jumpForward()">Előre</button>
   <button (click)="iterate2(currentIteration)">Iteration</button>
-  <button (click)="clearTime()">Stop Iterate</button>
+  <button (click)="clearTime()">Stop Iterate</button> -->
   
 </div>
