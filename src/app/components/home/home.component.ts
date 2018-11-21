@@ -91,7 +91,14 @@ export class HomeComponent implements OnInit {
   jumpForward() {
     clearTimeout(this.timeOut);
     const counter = this.currentIteration + 1;
-    console.log(counter);
+    if (counter > - 1) {
+
+      const skippedLine = this.story_line.children[counter - 1 ];
+      this.renderer.removeClass(skippedLine, 'loaded');
+
+      this.renderer.addClass(skippedLine, 'skipped');
+
+    }
     this.iterate2(counter);
   }
 
@@ -100,12 +107,27 @@ export class HomeComponent implements OnInit {
 
   jumpBackward() {
     clearTimeout(this.timeOut);
-    const counter = this.currentIteration - 1;
-    if ( counter > - 1 ) {
-      const removedLine = this.story_line.children[counter + 1];
-      this.renderer.removeClass(removedLine, 'loaded');
+    let counter;
+    if ( this.currentIteration !== 0 ) {
+      counter = this.currentIteration - 1;
+
+    } else {
+       counter = this.currentIteration;
+       console.log('első');
     }
-    this.iterate2(counter);
+
+      const removedLine = this.story_line.children[counter + 1];
+      const currentLine = this.story_line.children[counter];
+      this.renderer.removeClass(removedLine, 'loaded');
+      this.renderer.removeClass(removedLine, 'skipped');
+
+      this.renderer.removeClass(currentLine, 'loaded');
+      this.renderer.removeClass(currentLine, 'skipped');
+      // console.log(counter);
+      setTimeout(() => {
+        this.iterate2(counter);
+      }, 10);
+
   }
 
 
